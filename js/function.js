@@ -155,16 +155,20 @@ function formSubmit() {
                 dataType: "html",
                 data: form_data,
                 success: function (response) {
-                    // $('#success').modal('show');
+                    $(this).attr('disabled', true);
+                    form.closest('.modal').modal('hide');
+                    setTimeout(function() {
+                        $('#success').modal('show');
+                    }, 200);
                     // console.log('success');
-                    console.log(response);
+                    // console.log(response);
                     // console.log(data);
                     // document.location.href = "success.html";
                 },
                 error: function (response) {
                     // $('#success').modal('show');
                     // console.log('error');
-                    console.log(response);
+                    // console.log(response);
                 }
             });
         }
