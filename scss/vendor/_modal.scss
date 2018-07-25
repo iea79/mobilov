@@ -11,23 +11,35 @@
     z-index: 1050;
     -webkit-overflow-scrolling: touch;
     outline: 0;
+    text-align: center;
+    &:before {
+        content: '';
+        display: inline-block;
+        height: 100vh;
+        vertical-align: middle;
+        margin-left: -4px;
+    }
     &-open {
         overflow: hidden;
     }
     &-close {
         position: absolute;
-        width: 21px;
-        height: 21px;
-        right: 23px;
-        top: 23px;
+        width: 2.313em;
+        height: 2.313em;
+        right: 0.8em;
+        top: 0.9em;
+        color: #b2b2b2;
+        border: 1px solid;
+        border-radius: 50%;
         // background: image-url('close.svg') no-repeat center center;
         &:before,&:after {
             content: '';
             position: absolute;
             display: block;
-            width: 20px;
-            border-top: 1px solid $main_color;
-            top: 10px;
+            width: 66%;
+            border-top: 1px solid;
+            top: 50%;
+            left: 17%;
         }
         &:before {
             transform: rotate(45deg);
@@ -36,7 +48,7 @@
             transform: rotate(-45deg);
         }
         &:hover {
-            opacity: .8;
+            color: $color_danger;
         }
     }
     &.fade .modal-dialog {
@@ -49,21 +61,23 @@
     }
     &-dialog {
         position: relative;
-        width: auto;
+        width: 96%;
         margin: 10px auto;
-        max-width: 690px;
+        max-width: 33.5em;
+        display: inline-block;
     }
 
     &-content {
         position: relative;
         background-color: #fff;
-        border: 1px solid #999;
-        border: 1px solid rgba(0,0,0,.2);
-        border-radius: 6px;
-        box-shadow: 0 3px 9px rgba(0,0,0,.5);
+        // border: 1px solid #999;
+        // border: 1px solid rgba(0,0,0,.2);
+        border: 0.063em solid #e1e1e1;
+        border-radius: 0.625em;
+        box-shadow: 0 0 5em rgba(0, 0, 0, 0.1);
         background-clip: padding-box;
         outline: 0;
-        padding: 46px 53px;
+        padding: 4em 4em;
     }
 
     &-backdrop {
@@ -73,15 +87,15 @@
         bottom: 0;
         left: 0;
         z-index: 1040;
-        background-color: #000;
+        background-color: $color_danger;
         &.fade {
             opacity: 0;
             filter: alpha(opacity=0);
         }
 
         &.in {
-            opacity: .5;
-            filter: alpha(opacity=50);
+            opacity: .95;
+            filter: alpha(opacity=95);
         }
     }
 
@@ -123,7 +137,32 @@
             margin-left: 0;
         }
     }
-
+    &Map {
+        .modal {
+            &-dialog {
+                max-width: 77em;
+            }
+            &-content {
+                background-color: transparent;
+                border: none;
+                box-shadow: none;
+                padding: 4em 0;
+            }
+            &-close {
+                right: 0;
+            }
+        }
+    }
+    @media (max-width: 1440px) {
+        font-size: 1.2em;
+    }
+    @media (max-width: 767px) {
+        font-size: 1em;
+        &-content {
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+    }
 }
 
 

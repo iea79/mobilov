@@ -1,7 +1,8 @@
 .form {
+	text-align: center;
 	@extend %clear_a;
 	&__row {
-		margin-bottom: 15px;
+		margin-bottom: 1em;
 		@extend %clear_a;
 		input:not([type]),
 		input[type=text],
@@ -12,8 +13,7 @@
 		input[type=tel],
 		input[type=number],
 		input[type=datetime], 
-		textarea,
-		.btn {
+		textarea {
 			width: 100%;
 		}
 		textarea {
@@ -22,8 +22,42 @@
 			min-height: 15px;
 		}
 	}
-	&__label {
-		
+	.btn {
+		width: 18.75em;
+		background-color: transparent;
+		color: $color_danger;
+		border: 0.125em solid $color_danger;
+		&:hover {
+			color: #fff;
+			
+		}
+		&:focus {
+			color: #fff;
+		}
+	}
+	fieldset {
+		border: none;
+		padding: 0;
+		margin: 0;
+	}
+	&__action {
+		margin-top: 2em;
+	}
+	&__legend {
+		text-transform: uppercase;
+		font-weight: 600;
+		margin-bottom: 3em;
+	}
+	&__privacy {
+		font-size: .7em;
+	}
+	@media (max-width: 1440px) {
+	    &__legend {
+	    	font-size: 1.1em;
+	    }
+		&__privacy {
+			font-size: 0.8em;
+		}
 	}
 }
 // Input text and textarea ================================================
@@ -37,15 +71,17 @@ input[type=tel],
 input[type=number],
 input[type=datetime], 
 textarea {
-	background-color: $input_bg_color;
-	border: 1px solid $input_border_color;
-	padding: 6px 15px;
+	background-color: #ebebeb;
+	border: 0.125em solid #e1e1e1;
+	height: 4.45em;
 	outline: none;
-	font-size: 16px;
+	font-size: 0.75em;
 	font-weight: 300;
 	font-family: $main_font_family;
-	border-radius: 5px;
+	border-radius: 2.08em;
 	transition: all .3s;
+	text-align: center;
+	color: $color_warning;
 	&:hover {
 		border: 1px solid $input_hover_border_color;
 		background-color: $input_hover_bg_color;;
@@ -56,11 +92,17 @@ textarea {
 	}
 	&.invalid {
 		background-color: #fff0f0;
-		border: 1px solid red;
+		border: 1px solid $color_danger;
+		@include placeholder {
+			color: $color_danger;
+		}
 	}
 	// Placeholder for input +++++++++++++++
 	@include placeholder {
-		color: $input_placeholder_color;
+		color: $color_warning;
+	}
+	@media (max-width: 1440px) {
+	    font-size: 1em;
 	}
 }
 

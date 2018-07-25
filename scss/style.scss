@@ -8,10 +8,15 @@
 
 @import 'mixins/mixin';
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
+// @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,900);
+@import url('https://fonts.googleapis.com/css?family=Montserrat:700&subset=cyrillic');
 
 // Mixin for include fonts
-// @include font-face("ArialMT", fonts/CenturyGothic, normal, normal);
+@include font-face("Muller", "../fonts/MullerBlack", 900, normal);
+@include font-face("Muller", "../fonts/MullerBold", bold, normal);
+@include font-face("Muller", "../fonts/MullerMedium", 500, normal);
+@include font-face("Muller", "../fonts/MullerLight", 300, normal);
+@include font-face("Muller", "../fonts/MullerRegular", normal, normal);
 
  // Import files
 @import 'variables/variables';
@@ -22,12 +27,365 @@
 @import 'core/form';
 @import 'core/grid';
 @import 'core/soc';
-@import 'core/breadcrumb';
-@import 'core/pagination';
+// @import 'core/breadcrumb';
+// @import 'core/pagination';
 @import 'core/buttons';
 @import 'core/video';
+@import 'vendor/modal';
 
 
 
+@font-face {
+  font-family: 'icomoon';
+  src:  url('../fonts/icomoon.eot?svnikw');
+  src:  url('../fonts/icomoon.eot?svnikw#iefix') format('embedded-opentype'),
+    url('../fonts/icomoon.ttf?svnikw') format('truetype'),
+    url('../fonts/icomoon.woff?svnikw') format('woff'),
+    url('../fonts/icomoon.svg?svnikw#icomoon') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
 
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  // display: inline-block;
 
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-instagram:before {
+  content: "\e900";
+}
+.icon-vk:before {
+  content: "\e901";
+}
+.icon-youtube:before {
+  content: "\e902";
+}
+
+.fade, .hidden {
+	opacity: 0;
+}
+
+.show {
+	opacity: 1;
+}
+
+body {
+	overflow-x: hidden;
+}
+
+@keyframes splashIn{
+	0% {
+		opacity: 1;
+	}
+	10% {
+		opacity: 0;
+	}
+	16% {
+		opacity: 1;
+	}
+	33% {
+		opacity: 0;
+	}
+	40% {
+		opacity: 1;
+	}
+	48% {
+		opacity: 0;
+	}
+	63% {
+		opacity: 1;
+	}
+	68% {
+		opacity: 0;
+	}
+	76% {
+		opacity: 1;
+	}
+	93% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+.splashIn {
+	animation: splashIn 0.8s ease-in;
+}
+
+.main {
+	&__left {
+		float: left;
+		width: 42.4%;
+		min-height: 1px;
+	}
+	&__phone {
+		position: absolute;
+		left: 11em;
+		bottom: -5em;
+		width: 37.9em;
+		&_m {
+			opacity: 0;
+			&.splashIn {
+				opacity: 1;
+			}
+		}
+	}
+	&__right {
+		overflow: hidden;
+	}
+	&__title {
+		font-weight: 300;
+		font-size: 2.5em;
+		line-height: 1.2;
+		margin: 1.1em 0 0.65em;
+		letter-spacing: .2em;
+	}
+	&__action {
+		margin-bottom: 9.6em;
+		&Adress {
+			display: inline-block;
+			font-size: 0.9em;
+			vertical-align: middle;
+			color: #b2b2b2;
+			a {
+				color: $color_danger;
+				font-weight: 600;
+				opacity: 0.3;
+				filter: grayscale(100%);
+				margin-left: 0.6em;
+				&:before {
+					content: url('../img/location.png');
+					display: inline-block;
+					vertical-align: middle;
+					margin-right: 0.7em;
+					// opacity: 0.3;
+				}
+				&:hover {
+					opacity: 1;
+					filter: grayscale(0);
+				}
+			}
+		}
+		.btn {
+			width: 23.4em;
+			margin-right: 3em;
+		}
+	}
+	@media (max-width: 1440px) {
+	    &__title {
+	    	font-size: 3.2em;
+	    	letter-spacing: .01em;
+	    	line-height: 1.25;
+	    	margin-bottom: 0.5em;
+	    }
+	    &__action {
+	    	margin-bottom: 5.6em;
+	    	&Adress {
+	    		font-size: 1.1em;
+	    	}
+		    .btn {
+		    	width: 17em;
+		    	margin-right: 2.3em;
+		    }
+	    }
+	}
+	@media (max-width: 991px) {
+	    &__left {
+	    	width: 35%;
+	    }
+	}
+	@media (max-width: 767px) {
+	    &__phone {
+	    	display: none;
+	    }
+	    &__left {
+	    	width: 0;
+	    }
+	    &__title {
+	    	font-size: 3.2em;
+	    	letter-spacing: 0.03em;
+	    }
+	    &__action {
+	    	margin-bottom: 5em;
+	    	&Adress {
+	    		padding-left: 1.1em;
+	    		font-size: 1.5em;
+	    		line-height: 1.3;
+	    	}
+	    	a {
+	    		display: block;
+	    		margin-left: 0;
+	    		font-size: .9em;
+	    	}
+		    .btn {
+		    	display: block;
+		    	margin-bottom: 0.9em;
+		    }
+	    }
+	}
+}
+
+.info {
+	max-width: 58.5em;
+	&__grid {
+		> div {
+			width: 50%;
+			@include browser("not-flex") {
+				// width: 48%;
+			}
+		}
+	}
+	&__item {
+		display: table !important;
+			@include browser("not-flex") {
+				display: inline-table !important;
+			}
+	}
+	&__img {
+		display: table-cell;
+		vertical-align: middle;
+		width: 2.4em;
+		img {
+		}
+	}
+	&__text {
+		vertical-align: middle;
+		display: table-cell;
+		padding-left: 1.2em;
+		font-size: 0.85em;
+	}
+	@media (max-width: 1440px) {
+		max-width: 50em;
+		&__grid {
+			margin-left: -3em;
+			> div {
+				padding-left: 3em;
+				margin-bottom: 2.7em;
+			}
+		}
+	    &__img {
+			width: 2.9em;
+			img {
+			}
+	    }
+	    &__text {
+			font-size: 1.2em;
+			padding-left: 1.1em;
+	    }
+	    // line-height: 1;
+	}
+	@media (max-width: 767px) {
+	    max-width: none;
+		&__grid {
+			> div {
+				width: 100%;
+				margin-bottom: 2.9em;
+			}
+		}
+	    &__img {
+			width: 3.3em;
+			img {
+			}
+	    }
+	    &__text {
+			font-size: 1.3em;
+			padding-left: 1.4em;
+	    }
+	}
+}
+
+.sub {
+	list-style: none;
+	padding-left: 0;
+	margin-bottom: 3.6em;
+	&__item {
+		padding-left: 0.6em;
+		margin-bottom: 0.3em;
+		position: relative;
+		&:before {
+			content: '.';
+			font-size: 1.6em;
+			position: absolute;
+			line-height: 0;
+			top: 12%;
+			left: 0;
+		}
+	}
+	@media (max-width: 1440px) {
+	    font-size: 1.3em;
+	    margin-bottom: 2.6em;
+	}
+	@media (max-width: 767px) {
+	    font-size: 1.4em;
+	    margin-bottom: 1.7em;
+	}
+}
+
+.inJob {
+	font-size: 0.75em;
+	font-weight: 600;
+	text-transform: uppercase;
+	color: #fff;
+	position: absolute;
+	transform: rotate(270deg);
+	bottom: 17.4em;
+	left: -3.1em;
+	&:before {
+		content: url('../img/inJob.png');
+		margin-right: 2.6em;
+		vertical-align: middle;
+		display: inline-block;
+		transform: rotate(90deg);
+	}
+	@media (max-width: 1440px) {
+	    font-size: 1em;
+	    left: -7em;
+	    bottom: 13.6em;
+	}
+	@media (max-width: 767px) {
+	    display: none;
+	}
+}
+
+.map {
+	&__wrap {
+		position: relative;
+		padding-bottom: 50%;
+		iframe {
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+	&__legend {
+		text-align: left;
+		margin: 1.9em 0;
+		color: $color_withe;
+		font-size: 0.875em;
+		&:before {
+			content: url('../img/location-w.png');
+			display: inline-block;
+			vertical-align: middle;
+			margin-right: 0.8em;
+		}
+	}
+	@media (max-width: 767px) {
+	    &__wrap {
+	    	padding-bottom: 100%;
+	    }
+	}
+}

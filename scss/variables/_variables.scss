@@ -1,21 +1,22 @@
 /* Global variables */
 /* ======================================================================== */
-$main_font_family:								"Open Sans";
+$main_font_family:								"Muller";
 $main_color:									#000;
 $main_line_height:								1.2;
-$main_font_size:								16px;
+$main_font_size:								1em;
 
-$container_width:								900px;
+$container_width:								100%;
 
 $footer_height: 								auto;
 
 // Color collection for elements
-$color_primary:									#7b8287;
-$color_success:									#36a566;
-$color_info:									#03a9f4;
-$color_warning:									#fca33e;
-$color_danger:									#ff1a1a;
+$color_primary:									#000e1b;
+$color_success:									#ff008a;
+$color_info:									#8e8e8e;
+$color_warning:									#9b9b9b;
+$color_danger:									#cd3033;
 $color_withe:									#ffffff;
+$color_dark:									#000000;
 
 $green:											$color_success;
 $yellow:										$color_warning;
@@ -32,7 +33,7 @@ $el-colors: (
 
 /* Grid */
 /* ======================================================================== */
-$grid_padding:									20px;
+$grid_padding:									1.3em;
 
 
 /* Form */
@@ -70,8 +71,8 @@ $input_error_border_color:						red;
 $input_error_placeholder_color:					red;
 
 // Button variables
-$btn_default_bg_color:				 			#ddd;
-$btn_default_text_color:                        $main_color;
+$btn_default_bg_color:				 			$color_danger;
+$btn_default_text_color:                        $color_withe;
 $btn_contrast_text_color:                       $color_withe;
 $btn_default_bg_color_hover:					#ccc;
 

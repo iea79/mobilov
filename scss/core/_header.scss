@@ -1,19 +1,73 @@
 /* Header
  ----------------------------------------------------------------------------- */
 .header {
-	background-color: #ccc;
-	padding: 10px 0;
+	// background-color: #ccc;
+	padding: 5.6em 0 7.7em;
+	// padding: 10px 0;
 	@extend %clear_a;
 	&__logo {
 		float: left;
-		width: 150px;
+		padding-top: 0.5em;
+		// width: 150px;
+	}
+	&__callback {
+		float: right;
+		margin-right: -1em;
+		a {
+			height: 0.938em;
+			color: $color_dark;
+			// font-family: "Muller Black";
+			font-size: 1em;
+			font-weight: 900;
+			text-decoration: none;
+			display: inline-block;
+			&:after {
+				content: url('../img/call.png');
+				display: inline-block;
+				vertical-align: middle;
+				margin-left: 2em;
+			}
+			&:hover {
+				text-decoration: underline;
+				&:after {
+					animation: swing 0.8s;
+				}
+			}
+		}
+	}
+	@media (max-width: 1440px) {
+	    padding: 4.4em 0 4em;
+	    &__logo {
+	    	width: 17em;
+	    }
+	    &__callback {
+	    	a {
+	    		font-size: 1.3em;
+		    	&:after {
+		    		margin-right: 0.7em;
+		    	}
+	    	}
+	    }
+	}
+	@media (max-width: 767px) {
+	    padding: 3.1em 0 0.4em;
+	    &__logo {
+	    	padding-top: 1em;
+	    	width: 15em;
+	    }
+	    &__callback {
+	    	font-size: 0;
+	    	&:after {
+	    		// margin-right: 3px;
+	    	}
+	    }
 	}
 }
 
 // stiky menu
 .stiky {
-	position: fixed;
-	top: 0;
-	left: 0;
-	width: 100%;
+	// position: fixed;
+	// top: 0;
+	// left: 0;
+	// width: 100%;
 }
